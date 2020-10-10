@@ -72,12 +72,12 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/from',
+          title: 'จองห้องพัก',
+          to: '/',
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
+          title: 'รายการจอง',
           to: '/table',
         },
       ],
