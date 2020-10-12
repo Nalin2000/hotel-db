@@ -26,12 +26,8 @@
     </v-navigation-drawer>
 
     <v-app-bar :clipped-left="clipped" fixed app>
-      <v-icon large color="white darken-2"> mdi-domain </v-icon>
-      FRONT BEACH HOTEL
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-icon large color="white darken-2"> mdi-domain </v-icon>
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
@@ -67,6 +63,10 @@ export default {
           to: '/table',
         },
       ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'FRONT BEACH HOTEL',
     }
   },
 }
