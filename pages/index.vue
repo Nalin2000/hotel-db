@@ -226,5 +226,4 @@
     </v-card>
   </div>
 </template>
-<script>
-// eslint-disable-next-line no-unused-vars
+<script></script>
