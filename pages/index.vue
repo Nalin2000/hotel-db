@@ -226,4 +226,71 @@
     </v-card>
   </div>
 </template>
-<script></script>
+<script>
+// eslint-disable-next-line no-unused-vars
+import { db } from '~/plugins/firebaseConfig.js'
+
+export default {
+  data() {
+    return {
+      name: null,
+      phone: '',
+      add: '',
+      Address: {},
+      email: '',
+      costumers: '',
+      kon: [1, 2],
+      room: '',
+      items: [1, 2, 3, 4, 5, 6],
+      arr: {},
+      datein: '',
+      dateout: '',
+      menu1: false,
+      menu2: false,
+      sub_district: '',
+      district: '',
+      // state: 'checkin',
+      province: '',
+      dialog: false,
+      nameRules: [(v) => !!v || 'please required'],
+      emailRules: [
+        (v) => !!v || 'E-mail is required',
+        (v) => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
+      valid: true,
+    }
+  },
+  methods: {
+    validate() {
+      this.$refs.form.validate()
+    },
+    set() {
+      // เก็บข้อมูล Form ใน collection MyForm ( มี 1 document แต่จะ update ข้อมูลเรื่อย ๆ )
+      const d = {
+        room: this.room,
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        costumers: this.costumers,
+        address: {
+          add: this.add,
+          sub_district: this.sub_district,
+          district: this.district,
+          province: this.province,
+        },
+        date_in: this.datein,
+        date_out: this.dateout,
+      }
+      db.collection('MyForm')
+        .doc()
+        .set(d)
+        .then(function () {
+          console.log('Document successfully written! -> data')
+        })
+    },
+    reset() {
+      this.$refs.form.reset()
+    },
+  },
+}
+</script>
